@@ -89,17 +89,17 @@
 
         function getSelect() {
           let selectValue = $(this).val();
-          $('.list li').hide();
-
-          if (selectValue === 'all') {
-            $('.list li').show();
-          } else {
-            $('.list li').each(function() {
+          $('.list li').each(function() {
+            if (selectValue === 'all') {
+              $(this).show();
+            } else {
               if ($(this).data('category-type') === selectValue) {
                 $(this).show();
+              } else {
+                $(this).hide();
               }
-            });
-          }
+            }
+          });
         }
       });
       // 今回やるのはフィルタリング機能です。
